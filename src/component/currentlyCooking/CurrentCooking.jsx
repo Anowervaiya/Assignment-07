@@ -1,33 +1,19 @@
-// import { useState } from "react";
+import { useState } from "react";
 
-// function CurrentlyCooking(params) {
-  
-//   return (
-   
-//     <tbody>
-//               <tr>
-//                 <td className="p-4">{index + 1}</td>
-//                 <td
-//                   className="px-12
-//               "
-//                 >
-//                   {recipe_name}
-//                 </td>
-//                 <td
-//                   className="px-12
-//               "
-//                 >
-//                   {preparing_time}
-//                 </td>
-//                 <td
-//                   className="px-12
-//               "
-//                 >
-//                   {calories}
-//         </td>
-//         </tr>
-//    </tbody>
-//   )
-// }
+function CurrentCooking({ currentCook }) {
+  console.log(currentCook);
+  const { recipe_name, preparing_time, calories } = currentCook;
 
-// export default CurrentlyCooking;
+  return (
+    <>
+     
+      <div className="flex gap-16 ">
+        <p>{recipe_name}</p>
+        <p>{preparing_time}</p>
+        <p>{calories}</p>
+      </div>
+    </>
+  );
+}
+
+export default CurrentCooking;

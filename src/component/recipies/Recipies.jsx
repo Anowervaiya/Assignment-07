@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import ShowCook from '../showCook/ShowCook';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import CurrentCooking from '../currentlyCooking/CurrentCooking';
+
 
 function Recipies() {
   const [cook, setCook] = useState([]);
@@ -19,11 +21,11 @@ function Recipies() {
     };
     cardFetching();
   }, []);
+  const [currentCook, setCurrentCook] = useState({});
 
-  
   // praparing button 
   const Praparing = item => {
-   
+    setCurrentCook(item);
     
     const deleted = cook.filter(dltItem => dltItem.recipe_id != item.recipe_id)
     if (deleted) {
@@ -77,7 +79,7 @@ function Recipies() {
           <h1 className="text-2xl font-bold my-8">Want to cook: {totalCook}</h1>
           <hr />
           <thead className="text-center">
-            <tr className='flex justify-center items-center'>
+            <tr>
               <th></th>
               <th className="px-12">Name</th>
               <th className="px-12">Time</th>
@@ -85,9 +87,21 @@ function Recipies() {
               <th></th>
             </tr>
           </thead>
+          <hr />
 
           <ShowCook Praparing={Praparing} cook={cook}></ShowCook>
         </div>
+
+        <thead className="text-center">
+          <tr>
+            <th></th>
+            <th className="px-12">Name</th>
+            <th className="px-12">Time</th>
+            <th className="px-12"> Calories</th>
+            <th></th>
+          </tr>
+        </thead>
+        <CurrentCooking currentCook={currentCook}></CurrentCooking>
       </div>
     </div>
   );
