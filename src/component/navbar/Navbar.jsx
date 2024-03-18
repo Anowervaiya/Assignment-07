@@ -3,7 +3,7 @@ const Navbar = () => {
   return (
     <div
       class=" py-4 items-center
-    flex justify-between bg-base-100"
+    flex flex-col md:flex-row md:justify-between bg-base-100"
     >
       <div>
         <a class="btn btn-ghost text-xl">Recipe Calories</a>

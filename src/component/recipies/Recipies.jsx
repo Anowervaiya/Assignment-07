@@ -71,9 +71,9 @@ function Recipies() {
         </p>
       </div>
       {/* card container with show section */}
-      <div className="flex flex-col lg:flex-row  justify-around gap-x-4">
+      <div className="flex flex-col md:flex-row  justify-around gap-x-4">
         {/*  card container */}
-        <div className=" text-center">
+        <div className=" flex-1 text-center">
           <CardContainer
             cardContainer={cardContainer}
             handleCook={handleCook}
@@ -81,19 +81,19 @@ function Recipies() {
         </div>
 
         {/* show card  */}
-        <div className="mt-[60px]  border-2 flex-1  rounded-xl">
+        <div className="mt-[60px]  border-2  px-4 rounded-xl">
           <h1 className="text-2xl font-bold my-8">Want to cook: {totalCook}</h1>
           <hr />
           <thead>
             <tr>
-              <th className="px-12"></th>
-              <th className="px-12">Name</th>
-              <th className="px-12">Time</th>
-              <th className="px-12"> Calories</th>
-              <th className="px-12"></th>
+              <th className="lg:px-4"></th>
+              <th className="lg:px-4">Name</th>
+              <th className="lg:px-4">Time</th>
+              <th className="lg:px-4"> Calories</th>
+              <th className="lg:px-4"></th>
             </tr>
           </thead>
-          <hr />
+         
 
           <ShowCook Praparing={Praparing} cook={cook}></ShowCook>
           <hr />
@@ -103,11 +103,11 @@ function Recipies() {
           <hr />
           <thead>
             <tr>
-              <th className="px-12"></th>
-              <th className="px-12">Name</th>
-              <th className="px-12">Time</th>
-              <th className="px-12"> Calories</th>
-              <th></th>
+              <th  className="lg:px-4"></th>
+              <th  className="lg:px-4">Name</th>
+              <th  className="lg:px-4">Time</th>
+              <th  className="lg:px-4"> Calories</th>
+              <th className="lg:px-4"></th>
             </tr>
           </thead>
 

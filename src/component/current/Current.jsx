@@ -10,11 +10,11 @@ function Currrent({ currentCook }) {
         return (
           <>
             <tbody>
-              <tr>
-                <td>{recipe_id}</td>
-                <td>{recipe_name}</td>
-                <td>{preparing_time}</td>
-                <td>{calories}</td>
+              <tr >
+                <td className="py-4">{recipe_id}</td>
+                <td className="py-4">{recipe_name}</td>
+                <td className="py-4">{preparing_time}</td>
+                <td className="py-4">{calories}</td>
               </tr>
             </tbody>
           </>
