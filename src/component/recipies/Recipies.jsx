@@ -17,7 +17,7 @@ function Recipies() {
 
   useEffect(() => {
     const cardFetching = async () => {
-      const responsive = await fetch('recipies.json');
+      const responsive = await fetch('/recipies.json');
       const data = await responsive.json();
       setcardContainer(data);
     };
