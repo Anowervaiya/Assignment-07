@@ -98,8 +98,9 @@ function Recipies() {
           <ShowCook Praparing={Praparing} cook={cook}></ShowCook>
           <hr />
           <h1 className="text-2xl font-bold my-8">
-            Want to cook: {totallMinus}
+            Currently cooking: {totallMinus}
           </h1>
+          <hr />
           <thead>
             <tr>
               <th className="px-12"></th>

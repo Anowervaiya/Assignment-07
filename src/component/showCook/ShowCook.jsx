@@ -13,9 +13,9 @@ function ShowCook({ cook, Praparing }) {
           <>
             <tbody>
               <tr>
-                <td className="p-4">{index + 1}</td>
+                <td className="px-12">{index + 1}</td>
                 <td
-                  className="px-12
+                  className="px-8
               "
                 >
                   {recipe_name}
