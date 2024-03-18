@@ -4,36 +4,41 @@ import { useEffect } from 'react';
 import ShowCook from '../showCook/ShowCook';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import CurrentCooking from '../currentlyCooking/CurrentCooking';
+import Currrent from '../current/Current';
+
 
 
 function Recipies() {
   const [cook, setCook] = useState([]);
   const [totalCook, setTotalCook] = useState(0);
+  const [totallMinus, setTotalMinus] = useState(0);
 
   const [cardContainer, setcardContainer] = useState([]);
 
   useEffect(() => {
     const cardFetching = async () => {
-      const responsive = await fetch('public/recipies.json');
+      const responsive = await fetch('recipies.json');
       const data = await responsive.json();
       setcardContainer(data);
     };
     cardFetching();
   }, []);
-  const [currentCook, setCurrentCook] = useState({});
+  const [currentCook, setCurrentCook] = useState([]);
 
   // praparing button 
   const Praparing = item => {
-    setCurrentCook(item);
+    setCurrentCook([...currentCook,item]);
     
     const deleted = cook.filter(dltItem => dltItem.recipe_id != item.recipe_id)
     if (deleted) {
       setTotalCook(totalCook - 1);
+      setTotalMinus(totallMinus + 1);
       setCook(deleted);
     }
     
   };
+
+
 
   // handleCook button 
   const handleCook = handleCook => {
@@ -46,6 +51,7 @@ function Recipies() {
 
       setCook(newHandleCook);
       setTotalCook(totalCook + 1);
+      
     } else {
       toast.warning('this is already cooked');
     }
@@ -78,30 +84,34 @@ function Recipies() {
         <div className="mt-[60px]  border-2 flex-1  rounded-xl">
           <h1 className="text-2xl font-bold my-8">Want to cook: {totalCook}</h1>
           <hr />
-          <thead className="text-center">
+          <thead>
             <tr>
-              <th></th>
+              <th className="px-12"></th>
+              <th className="px-12">Name</th>
+              <th className="px-12">Time</th>
+              <th className="px-12"> Calories</th>
+              <th className="px-12"></th>
+            </tr>
+          </thead>
+          <hr />
+
+          <ShowCook Praparing={Praparing} cook={cook}></ShowCook>
+          <hr />
+          <h1 className="text-2xl font-bold my-8">
+            Want to cook: {totallMinus}
+          </h1>
+          <thead>
+            <tr>
+              <th className="px-12"></th>
               <th className="px-12">Name</th>
               <th className="px-12">Time</th>
               <th className="px-12"> Calories</th>
               <th></th>
             </tr>
           </thead>
-          <hr />
 
-          <ShowCook Praparing={Praparing} cook={cook}></ShowCook>
+          <Currrent currentCook={currentCook}></Currrent>
         </div>
-
-        <thead className="text-center">
-          <tr>
-            <th></th>
-            <th className="px-12">Name</th>
-            <th className="px-12">Time</th>
-            <th className="px-12"> Calories</th>
-            <th></th>
-          </tr>
-        </thead>
-        <CurrentCooking currentCook={currentCook}></CurrentCooking>
       </div>
     </div>
   );
